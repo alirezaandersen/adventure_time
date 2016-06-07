@@ -11,7 +11,9 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'faker'
-gem 'omniauth-facebook'
+gem 'omniauth-twitter'
+gem 'open-weather'
+gem 'wunderground'
 gem 'bootstrap', '~> 4.0.0.alpha3'
 gem 'simplecov', :require => false, :group => :test
 gem 'factory_girl_rails'
