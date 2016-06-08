@@ -1,0 +1,42 @@
+<br><br><br>
+<br><br><br>
+ <div class="tag-search center container">
+   <h1 class="text-lg-center"> Find your Adventure today</h1>
+   <div class="row">
+
+   <form class="form-group center" />
+
+     <div class="col-md-2 col-md-offset-4">
+       <input type="text" name="zip" id="location" class="form-control" placeholder="Zipcode"/>
+     </div>
+    <div class="col-md-2">
+  <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Parks <span class="caret"></span>
+  </button>
+  <ul class="dropdown-menu">
+    <li><input type="submit"  value="City Parks" action='/city_parks/new' method"get" class="btn btn-one btn-wide" /></li>
+    <li><input type="submit"  value="State Parks" action="new_state_park" method"get" class="btn btn-one btn-wide" /></li>
+    <li><input type="submit"  value="National Parks" action="new_national_park" method"get" class="btn btn-one btn-wide" /></li>
+    <li><%= link_to "City Parks", new_city_park_path %> </li>
+    <li><%= link_to "State Parks", new_state_park_path %> </li>
+    <li><%= link_to "National Parks", new_national_park_path %> </li>
+<!--
+    <li><a href="new_city_park_path">City Parks</a></li>
+    <li><a href="new_state_park_path">State Park</a></li>
+    <li><a href="new_national_park_path">National Park</a></li>
+    <li role="separator" class="divider"></li>
+    <li><a href="#">Separated link</a></li> -->
+  </ul>
+</div>
+<!-- <input type="submit" name="commit" value="City Parks" action="new_city_park" method"get" class="btn btn-one btn-wide" /> -->
+
+</form>
+</div>
+ </div>
+<!-- </div> -->
+
+<!-- <%= form_tag '/save_search' do %>
+  <%= text_field_tag 'search_name', :class => 'search_save' %>
+
+  <%= submit_tag 'Save search' %>
+<% end %> -->
