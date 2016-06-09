@@ -14,5 +14,6 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
- *= require rails_bootsrapforms
+ *= require_self
+ *= require parks
  */

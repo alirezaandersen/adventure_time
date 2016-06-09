@@ -1,5 +1,9 @@
 class UndergroundWeatherService
 
+  def google_geocode
+    GoogleGeocode.new
+  end
+
   def initialize
     @connection = Faraday.new(url: "http://api.wunderground.com/api/#{ENV["UNDERGROUND_APP_KEY"]}/")
     @connection.headers["Authorization"] = ENV["UNDERGROUND_APP_KEY"]
@@ -18,6 +22,16 @@ class UndergroundWeatherService
   def condition_by_zip(zip)
     json_result = json_request("conditions/q/%s.json" % [zip.to_s])
     city_temp(json_result)
+  end
+
+  def condition_by_lat_long(parks)
+     lat_long = parse_park_geo(parks)
+     binding.pry
+    json_results = json_request("geolookup/q/#{lat_long.first.first},#{lat_long.first.last}.json")
+  end
+
+  def parse_park_geo(parks)
+    parks.map { |geo| geo.last }
   end
 
   def city_temp(json_result)

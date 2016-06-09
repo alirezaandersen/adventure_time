@@ -2,12 +2,11 @@ class GooglePlacesService
 
   def initialize
     @connection = Faraday.new(url: "https://maps.googleapis.com/maps/api/place/nearbysearch/json")
-    @connection = params["API_KEY"] = ENV["GOOGLE_PlACES_API_KEY"]
+    @connection.params["key"] = ENV["GOOGLE_PlACES_API_KEY"]
   end
 
   def city_park_search(location)
-    json_results = json_request("?location=#{location}&radius=5000&type=parks")
-    binding.pry
+    json_results = json_request("?location=#{location[0]},#{location[1]}&radius=5000&type=park")
   end
 
   def json_request(path)
