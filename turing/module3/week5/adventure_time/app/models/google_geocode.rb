@@ -9,6 +9,15 @@ class GoogleGeocode
     lng_lat(json_results)
   end
 
+  def self.long_lat_to_zip(lat_long)
+    json_results = service.json_request("?latlng=#{lat_long.first},#{lat_long.last}&result_type=postal_code")
+    geo_parser(json_results)
+  end
+
+  def self.geo_parser(json_results)
+    json_results[:results].first[:address_components].map{|e| e if e[:types].include?"postal_code"}.compact.first[:long_name]
+  end
+
   def self.lng_lat(json_results)
     lat = json_results[:results].first[:geometry][:location][:lat]
     lng = json_results[:results].first[:geometry][:location][:lng]

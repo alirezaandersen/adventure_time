@@ -19,25 +19,12 @@ class UndergroundWeatherService
     JSON.parse(response, symbolize_names: true )
   end
 
-  def condition_by_zip(zip)
-    json_result = json_request("conditions/q/%s.json" % [zip.to_s])
-    city_temp(json_result)
-  end
-
   def condition_by_lat_long(parks)
      lat_long = parse_park_geo(parks)
-     binding.pry
+    #  binding.pry
     json_results = json_request("geolookup/q/#{lat_long.first.first},#{lat_long.first.last}.json")
   end
 
-  def parse_park_geo(parks)
-    parks.map { |geo| geo.last }
-  end
-
-  def city_temp(json_result)
-    {city: json_result[:current_observation][:display_location][:city],
-      temp: json_result[:current_observation][:temperature_string]}
-  end
 
   def conditions_by_zipcodes(*zipcodes)
     zipcodes.map do |zip|
@@ -46,7 +33,7 @@ class UndergroundWeatherService
     end.to_h
   end
 
-  def conditions_by_geolookup
-    json_geo = json_request("geolookup/q/autoip.json")
-  end
+  # def conditions_by_geolookup
+  #   json_geo = json_request("geolookup/q/autoip.json")
+  # end
 end

@@ -10,13 +10,9 @@ class ParksController  < ApplicationController
       render :search
     else
       @parks = ParkSelector.park_finder(params)
-      @zip = params[:zip]
-      @weather =UndergroundWeatherService.new
-      # conditions = @weather.condition_by_zip(@zip)
-      # binding.pry
-      @park_temp = @weather.condition_by_lat_long(@parks)
+      @parks_weather = UndergroundWeather.get_weather_for_parks(@parks)
       # @city = conditions.values.first
-      @five_day_forecast = OpenWeather.five_day_forecast(city)
+      # @five_day_forecast = OpenWeather.five_day_forecast(city)
     end
     params_redirect(params)
   end

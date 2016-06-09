@@ -1,7 +1,8 @@
 class GoogleGeocodeService
 
   def initialize
-    @connection = Faraday.new(url: "http://maps.googleapis.com/maps/api/geocode/json")
+    @connection = Faraday.new(url: "https://maps.googleapis.com/maps/api/geocode/json")
+    @connection.params["key"] = ENV["GOOGLE_PlACES_API_KEY"]
   end
 
 
