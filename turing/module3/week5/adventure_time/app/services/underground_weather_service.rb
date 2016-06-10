@@ -21,7 +21,6 @@ class UndergroundWeatherService
 
   def condition_by_lat_long(parks)
      lat_long = parse_park_geo(parks)
-    #  binding.pry
     json_results = json_request("geolookup/q/#{lat_long.first.first},#{lat_long.first.last}.json")
   end
 
@@ -32,8 +31,4 @@ class UndergroundWeatherService
       [zip.to_s, condition_by_zip(zip)]
     end.to_h
   end
-
-  # def conditions_by_geolookup
-  #   json_geo = json_request("geolookup/q/autoip.json")
-  # end
 end

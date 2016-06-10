@@ -1,34 +1,46 @@
-<% @parks.each.with_index do |park,i| %>
-  <% if i+1%3 == 0 %>
+<div class="container-fluid">
   <div class="row">
-    <% end %>
-    <div class="col-md-4">
-      <div class="card text-center" style="max-width: 202px;">
-        <!-- Heading -->
-
-        <div class="card-block">
-          <h4 class="card-title"><%= park.first %></h4>
-          <h6 class="card-subtitle text-muted"><%= park.last[:address] %></h6>
-        </div>
-        <!-- Image -->
-        <!-- <img src="/city_park_1.jpg" alt="Photo of sunset">
-        <img src="/pix/samples/12s.jpg" alt="Photo of sunset"> -->
-        <!-- Text Content -->
-        <div class="card-block">
-          <p class="card-text">Current Weather : <%= @parks_weather[park.first][:temp] %></p>
-
-          <a href="#" class="btn btn-primary">Full Report</a>
-        </div>
+    <% @parks.each do |park| %>
+    <div class="col-sm-4">
+      <div class="card card-block">
+        <h4 class="card-title"><%= park.first %></h4>
+        <p class="card-text" data-zip="<%= park[1][:zipcode] %>">Current Weather: <%#=@parks_weather[park.first][:temp]  %></p>
+        <a href="#" class="card-link">Directions</a>
+        <a href="#" class="card-link">Forecast</a>
       </div>
     </div>
-    <% if i%3 == 0 %>
+    <% end %>
   </div>
-<% end %>
-<% end %>
+</div>
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/js/bootstrap.min.js" integrity="sha384-vZ2WRJMwsjRMW/8U7i6PWi6AlO1L79snBrmgiDpgIWJ82z8eA5lenwvxbMV1PAh7" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/danielgindi-jquery-backstretch/2.1.13/jquery.backstretch.min.js"></script>
 
 <script>
 $.backstretch("http://kcparks.org/wp-content/uploads/2013/03/MillCreekFountain.jpg");
+$(document).ready(function(){
+  var parks = document.querySelectorAll('.card-text');
+for (val of parks) {
+  var zipcode = val.dataset['zip'];
+  var target_url = 'http://localhost:3000/json/weather';
+  $.ajax({
+    url: target_url,
+    data: {
+      zip: zipcode
+    },
+    type: 'GET',
+    dataType: 'json'
+  }).done(function (json) {
+    console.log(json['temp']);
+    var sel = "[data-zip=" + json['zip'] + "]";
+    $(sel).html(json['temp']);
+  }).fail(function (xhr, status, errorThrown) {
+    alert('Sorry, there was a problem!');
+    console.log('Error: ' + errorThrown);
+    console.log('Status: ' + status);
+    console.dir(xhr);
+  });
+}
+})
 </script>

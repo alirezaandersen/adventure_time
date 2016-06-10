@@ -24,6 +24,7 @@ class UndergroundWeather
   end
 
   def self.get_weather_for_parks(parks)
+    # binding.pry
     parks.map { |k,v| [k,UndergroundWeather.condition_by_zip(v[:zipcode])] }.to_h
   end
 

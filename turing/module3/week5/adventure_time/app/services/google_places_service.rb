@@ -6,7 +6,7 @@ class GooglePlacesService
   end
 
   def city_park_search(location)
-    json_results = json_request("?location=#{location[0]},#{location[1]}&radius=5000&type=park")
+    json_results = json_request("?location=#{location[0]},#{location[1]}&radius=2500&type=park")
   end
 
   def json_request(path)

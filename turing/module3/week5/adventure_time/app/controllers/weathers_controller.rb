@@ -20,4 +20,10 @@ class WeathersController <  ApplicationController
     #  @weather = OpenWeather.new
      @five_day_forecast = OpenWeather.five_day_forecast(@city)
   end
+
+  def json
+    @zip = params[:zip]
+
+    a = respond_with UndergroundWeather.condition_by_zip(@zip).merge(zip:@zip)
+  end
 end

@@ -9,7 +9,7 @@ class GoogleGeocode
     lng_lat(json_results)
   end
 
-  def self.long_lat_to_zip(lat_long)
+  def self.lat_long_to_zip(lat_long)
     json_results = service.json_request("?latlng=#{lat_long.first},#{lat_long.last}&result_type=postal_code")
     geo_parser(json_results)
   end
