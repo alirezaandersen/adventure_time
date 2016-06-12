@@ -25,7 +25,6 @@ class WeathersController <  ApplicationController
 
   def json
     @zip = params[:zip]
-
     a = respond_with UndergroundWeather.condition_by_zip(@zip).merge(zip:@zip)
   end
 

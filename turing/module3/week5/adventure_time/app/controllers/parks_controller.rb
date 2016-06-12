@@ -10,28 +10,8 @@ class ParksController  < ApplicationController
       render :search
     else
       @parks = ParkSelector.park_finder(params)
-      # binding.pry
-      # @parks_weather = UndergroundWeather.get_weather_for_parks(@parks)
     end
     params_redirect(params)
-  end
-
-
-
-  # def new2
-  #   if params[:zip].nil? || params[:type].nil?
-  #     flash[:error] = "Enter Zip Code"
-  #     render :search
-  #   else
-  #     @parks = ParkSelector.park_finder(params)
-  #     @parks_weather = UndergroundWeather.get_weather_for_parks(@parks)
-  #     # @city = @parks_weather.values.first
-  #     # @five_day_forecast = OpenWeather.five_day_forecast(city)
-  #   end
-  #   params_redirect(params)
-  # end
-
-  def create
   end
 
   def search
