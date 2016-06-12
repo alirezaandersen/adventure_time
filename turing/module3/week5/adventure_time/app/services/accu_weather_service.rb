@@ -11,19 +11,19 @@ class AccuWeatherService
     five_day_forecast_data(key_location)
   end
 
-  def five_day_forecast_data(key_location)
-    json_forecast_results = json_request("/forecasts/v1/daily/5day/#{key_location}?apikey=#{ENV["ACCU_WEATHER_KEY"]}")
-    forecast_parser(json_forecast_results)
-  end
+  # def five_day_forecast_data(key_location)
+  #   json_forecast_results = json_request("/forecasts/v1/daily/5day/#{key_location}?apikey=#{ENV["ACCU_WEATHER_KEY"]}")
+  #   forecast_parser(json_forecast_results)
+  # end
+  #
+  # def forecast_parser(json_forecast_results)
+  #   non_format_forecast = json_forecast_results[:DailyForecasts].map.with_index { |item, index| [item[:Date].split[0], item[:Temperature]]}
+  #   five_day_forecast(non_format_forecast)
+  # end
 
-  def forecast_parser(json_forecast_results)
-    non_format_forecast = json_forecast_results[:DailyForecasts].map.with_index { |item, index| [item[:Date].split[0], item[:Temperature]]}
-    five_day_forecast(non_format_forecast)
-  end
-
-  def five_day_forecast(non_format_forecast)
-    non_format_forecast.map { |forecast| [forecast[0], forecast[1].values[0].first[1], forecast[1].values[1].first[1]]}
-  end
+  # def five_day_forecast(non_format_forecast)
+  #   non_format_forecast.map { |forecast| [forecast[0], forecast[1].values[0].first[1], forecast[1].values[1].first[1]]}
+  # end
 
   def json_request(path)
     response = @connection.get(path).body
