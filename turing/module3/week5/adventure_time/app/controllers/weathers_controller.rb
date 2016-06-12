@@ -16,9 +16,11 @@ class WeathersController <  ApplicationController
   end
 
   def show
-     @city = params[:id]
-    #  @weather = OpenWeather.new
-     @five_day_forecast = OpenWeather.five_day_forecast(@city)
+    #  @city = params[:id]
+    binding.pry
+     @lat_long = params[:id]
+    #  @five_day_forecast = OpenWeather.five_day_forecast(@city)
+     @five_day_forecast = AccuWeather.five_day_forecast(@lat_long)
   end
 
   def json
@@ -26,4 +28,13 @@ class WeathersController <  ApplicationController
 
     a = respond_with UndergroundWeather.condition_by_zip(@zip).merge(zip:@zip)
   end
+
+  def forecast
+    lat = params[:lat]
+    long = params[:long]
+    lat_long = [lat,long]
+    @shiit= AccuWeatherService.new
+    @shiit.location_key(lat_long)
+  end
+
 end

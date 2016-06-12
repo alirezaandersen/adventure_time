@@ -8,7 +8,6 @@ class GooglePlace
       lat_lng = Location.zip_to_long_lat(zip)
      location = service.city_park_search(lat_lng)
      Rails.cache.fetch("get_city_parks_#{zip}") do
-      # binding.pry
        find_city_parks(location)
      end
   end
