@@ -21,7 +21,7 @@ class AccuWeatherService
     five_day_forecast(non_format_forecast)
   end
 
-  def five_day_forcast(non_format_forecast)
+  def five_day_forecast(non_format_forecast)
     non_format_forecast.map { |forecast| [forecast[0], forecast[1].values[0].first[1], forecast[1].values[1].first[1]]}
   end
 

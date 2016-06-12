@@ -33,8 +33,9 @@ class WeathersController <  ApplicationController
     lat = params[:lat]
     long = params[:long]
     lat_long = [lat,long]
-    @shiit= AccuWeatherService.new
-    @shiit.location_key(lat_long)
+    @accuweather= AccuWeatherService.new
+    @five_day_forecast = @accuweather.location_key(lat_long)
+    binding.pry
   end
 
 end
