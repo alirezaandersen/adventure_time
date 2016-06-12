@@ -1,0 +1,30 @@
+<style>
+  #forecast-container{
+    background-color:white;
+    margin-top:45px;
+  }
+  #forecast-table{
+    font-size: 16px;
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    border-spacing: 0;
+    width: 100%;
+  }
+</style>
+
+<div id="forecast-container">
+<table id="forecast-table">
+  <tr>
+    <th>Date</th>
+    <th>Low</th>
+    <th>High</th>
+  </tr>
+<% @five_day_forecast.each do |forecast| %>
+  <tr>
+    <td><%=forecast[0]%></td>
+    <td><%=forecast[1]%></td>
+    <td><%=forecast[2]%></td>
+  </tr>
+<% end %>
+</table>
+</div>

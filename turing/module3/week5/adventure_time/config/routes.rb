@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   resources :weathers, only: [:new, :create, :show]
 
   get '/json/weather', to: 'weathers#json', defaults:{format: :json}
-  get '/forecast/weather/', to: 'weathers#forecast', defaults:{format: :json}
+  get '/forecast/weather/', to: 'weathers#forecast', defaults:{format: :js}
 
   resources :parks, only:[:index, :new, :create, :show]
 

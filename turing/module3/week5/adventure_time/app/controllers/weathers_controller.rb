@@ -1,4 +1,5 @@
 class WeathersController <  ApplicationController
+  protect_from_forgery :except => :forecast
 
   def index
     @weather = UndergroundWeatherService.new
@@ -17,7 +18,7 @@ class WeathersController <  ApplicationController
 
   def show
     #  @city = params[:id]
-    binding.pry
+    #binding.pry
      @lat_long = params[:id]
     #  @five_day_forecast = OpenWeather.five_day_forecast(@city)
      @five_day_forecast = AccuWeather.five_day_forecast(@lat_long)
@@ -29,12 +30,12 @@ class WeathersController <  ApplicationController
   end
 
   def forecast
+    #binding.pry
     lat = params[:lat]
     long = params[:long]
     lat_long = [lat,long]
-    @accuweather= AccuWeatherService.new
-    @five_day_forecast = @accuweather.location_key(lat_long)
-    binding.pry
+    @five_day_forecast = AccuWeather.location_key(lat_long)
+    #binding.pry
   end
 
 end

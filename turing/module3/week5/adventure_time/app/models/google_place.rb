@@ -15,7 +15,9 @@ class GooglePlace
   def self.find_city_parks(location)
     a = location[:results].map do |show|
       if show[:name].downcase.include?("park")
-      [show[:name],{address:show[:vicinity],
+      [show[:name], {address:show[:vicinity],
+                    lat:show[:geometry].values.first.values.first,
+                    long:show[:geometry].values.first.values.last,
                     lat_long:show[:geometry].values.first.values,
                     zipcode:GoogleGeocode.lat_long_to_zip(show[:geometry].values.first.values)}
       ]
