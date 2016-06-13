@@ -31,7 +31,7 @@ class WeathersController <  ApplicationController
 
   def forecast
     lat_long(params)
-    @five_day_forecast = AccuWeather.location_key(lat_long)
+    @five_day_forecast = AccuWeather.location_key(lat_long(params))
   end
 
   def lat_long(params)
