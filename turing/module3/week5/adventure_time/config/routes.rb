@@ -11,6 +11,7 @@ Rails.application.routes.draw do
 
   get '/parks/directions', to: 'parks#directions', defaults:{format: :js}
   get 'parks/search', to: 'parks#search'
+  get 'parks/national_search', to: 'parks#national_search'
 
   get '/auth/twitter', as: :twitter_login
   get '/auth/twitter/callback', to: 'sessions#create'

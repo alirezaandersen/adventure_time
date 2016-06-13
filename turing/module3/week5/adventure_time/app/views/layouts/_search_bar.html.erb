@@ -1,35 +1,20 @@
 <br><br><br>
 <br><br><br>
  <div class="tag-search center container">
-   <h1 class="text-lg-center"> <font color="black"> Enter your Zipcode to find the nearest parks</h1>
+   <h1 class="text-lg-center"> <font color="black"> Enter your zipcode to find the nearest parks</h1>
    <div class="row">
 
-   <form class="form-group center" action='/parks/new'/>
-
-     <div class="col-md-2 col-md-offset-4">
-       <input type="text" name="zip" id="location" class="form-control" placeholder="Zipcode"/>
+     <form class="form-inline center" action="/parks/new">
+     <div class="form-group">
+       <label for="zipcode"></label>
+       <input type="hidden" name="type" value="city" />
+       <input type="zip" name="zip" class="form-control" id="zipcode" placeholder="zipcode">
      </div>
-    <div class="col-md-2">
-      <select id="dynamic_select">
-        <option value='#'> <font color="black"> Select type</option>
-        <option value="/parks/new?type=city">City</option>
-        <option value="/parks/new?type=state">State</option>
-        <option value="/parks/new?type=national">National</option>
-      </select>
-    </div>
-  </form>
+     <button type="submit" class="btn btn-primary">Search</button>
+   </form>
 </div>
  </div>
 
-<script>
-    document.querySelector('#dynamic_select').addEventListener('change', function(){
-      var zip = document.querySelector('#location').value;
-      var url = this.value + "&zip=" + zip;
-      if(url){
-        window.location = url;
-      }
-    });
-</script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/js/bootstrap.min.js" integrity="sha384-vZ2WRJMwsjRMW/8U7i6PWi6AlO1L79snBrmgiDpgIWJ82z8eA5lenwvxbMV1PAh7" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/danielgindi-jquery-backstretch/2.1.13/jquery.backstretch.min.js"></script>
