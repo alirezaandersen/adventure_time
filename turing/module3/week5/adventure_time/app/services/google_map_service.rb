@@ -11,7 +11,8 @@ class GoogleMapService
   end
 
   def get_park_address(lat_long)
-    json_results = json_request("?center=#{lat_long.first},#{lat_long.last}&zoom=13&size=600x300&maptype=roadmap")
+    binding.pry
+    json_results = json_request("?center=#{lat_long.first},#{lat_long.last}&zoom=13&size=600x300&maptype=roadmap&marker=color:blue%7C")
     binding.pry
   end
 end
