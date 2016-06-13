@@ -5,7 +5,6 @@ class GoogleGeocodeService
     @connection.params["key"] = ENV["GOOGLE_PlACES_API_KEY"]
   end
 
-
   def json_request(path)
     response = @connection.get(path).body
     JSON.parse(response, symbolize_names: true )

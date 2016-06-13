@@ -6,7 +6,6 @@ class GoogleMapService
   end
 
   def json_request(path)
-    # binding.pry
     response = @connection.get(path).body
     JSON.parse(response, symbolize_names:true)
   end

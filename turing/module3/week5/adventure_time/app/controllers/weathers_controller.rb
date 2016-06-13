@@ -17,10 +17,7 @@ class WeathersController <  ApplicationController
   end
 
   def show
-    #  @city = params[:id]
-    #binding.pry
      @lat_long = params[:id]
-    #  @five_day_forecast = OpenWeather.five_day_forecast(@city)
      @five_day_forecast = AccuWeather.five_day_forecast(@lat_long)
   end
 

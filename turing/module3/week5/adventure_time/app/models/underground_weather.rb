@@ -24,8 +24,17 @@ class UndergroundWeather
   end
 
   def self.get_weather_for_parks(parks)
-    # binding.pry
     parks.map { |k,v| [k,UndergroundWeather.condition_by_zip(v[:zipcode])] }.to_h
   end
 
+  def self.condition_by_lat_long(parks)
+     lat_long = parse_park_geo(parks)
+    json_results = json_request("geolookup/q/#{lat_long.first.first},#{lat_long.first.last}.json")
+  end
+
+  def self.conditions_by_zipcodes(*zipcodes)
+    zipcodes.map do |zip|
+      [zip.to_s, condition_by_zip(zip)]
+    end.to_h
+  end
 end
