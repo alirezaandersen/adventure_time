@@ -16,8 +16,18 @@
     border: 1px solid #e5e5e5;
     border-radius: .25rem;
 }
-
-#forecast-table, #forecast-table {
+#forecast-container{
+  background-color:white;
+  margin-top:45px;
+}
+// #forecast-table{
+//   font-size: 16px;
+//   font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+//   border-collapse: collapse;
+//   border-spacing: 0;
+//   width: 100%;
+// }
+#forecast-table {
   position: relative;
   width:300px;
       height:300px;

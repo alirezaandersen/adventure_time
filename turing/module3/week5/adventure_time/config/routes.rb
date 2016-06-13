@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  root 'parks#search'
+  root 'welcome#index'
 
   resources :weathers, only: [:new, :create, :show]
 
@@ -9,7 +9,8 @@ Rails.application.routes.draw do
 
   resources :parks, only:[:new]
 
-  get '/parks/directions', to: 'parks#directions'
+  get '/parks/directions', to: 'parks#directions', defaults:{format: :js}
+  get 'parks/search', to: 'parks#search'
 
   get '/auth/twitter', as: :twitter_login
   get '/auth/twitter/callback', to: 'sessions#create'

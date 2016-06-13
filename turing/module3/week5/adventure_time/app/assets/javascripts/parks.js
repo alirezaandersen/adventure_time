@@ -1,3 +1,4 @@
+
 $(document).ready(function(){
 //var parks = document.querySelectorAll('.card-text');
 var zipcodes = _.uniq($('.card-text').map(function(){ return $(this).attr('data-zip') }))

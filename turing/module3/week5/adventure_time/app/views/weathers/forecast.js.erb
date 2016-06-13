@@ -1,4 +1,3 @@
 $('#forecast-modal').html("<%= escape_javascript(render 'forecast', locals:{five_day_forecast:@five_day_forecast}) %>");
 //$('#forecast-modal').html("<%= @five_day_forecast %>");
 $('#forecast-modal').modal("show");
-$('#forecast-modal').slideDown();
