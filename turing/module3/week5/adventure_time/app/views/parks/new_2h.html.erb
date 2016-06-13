@@ -1,0 +1,29 @@
+<div class="container-fluid">
+  <!-- <div class="row">
+    <div class="col-md-12 head-logo">
+    <%= image_tag "colo_circle.png", class: "obey" %>
+    </div>
+  </div> -->
+  <div class="row">
+    <% @parks.each do |park_name,park_data| %>
+
+    <div class="col-sm-4">
+      <div class="card card-block">
+        <h4 class="card-title"><%= park_name %></h4>
+        <p class="card-text" data-zip="<%= park_data[:zipcode] %>">Current Weather: <%#=@parks_weather[park.first][:temp]  %></p>
+        <a href="#" class="card-link">Directions</a> &nbsp;
+        <%= link_to "Forecast", "/forecast/weather/?lat=%s&long=%s" % [park_data[:lat],park_data[:long]] , remote: true, class:"card-link" %>
+
+      </div>
+    </div>
+    <% end %>
+  </div>
+</div>
+<div id="forecast-modal"></div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/js/bootstrap.min.js" integrity="sha384-vZ2WRJMwsjRMW/8U7i6PWi6AlO1L79snBrmgiDpgIWJ82z8eA5lenwvxbMV1PAh7" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/danielgindi-jquery-backstretch/2.1.13/jquery.backstretch.min.js"></script>
+
+<script>
+$.backstretch("http://kcparks.org/wp-content/uploads/2013/03/MillCreekFountain.jpg");
+</script>

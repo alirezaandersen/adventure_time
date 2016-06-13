@@ -17,6 +17,18 @@ class ParksController  < ApplicationController
   def search
   end
 
+  def directions
+    lat_long(params)
+    location = GoogleMapService.new
+    @park_location = location.get_park_address(lat_long(params))
+  end
+
+  def lat_long(params)
+    lat = params[:lat]
+    long = params[:long]
+    lat_long = [lat,long]
+  end
+
   def params_redirect(params)
     if params[:type] == "city"
       @image = "http://kcparks.org/wp-content/uploads/2013/03/MillCreekFountain.jpg"

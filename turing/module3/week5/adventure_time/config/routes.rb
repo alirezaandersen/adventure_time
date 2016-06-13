@@ -7,7 +7,9 @@ Rails.application.routes.draw do
   get '/json/weather', to: 'weathers#json', defaults:{format: :json}
   get '/forecast/weather/', to: 'weathers#forecast', defaults:{format: :js}
 
-  resources :parks, only:[:index, :new, :create, :show]
+  resources :parks, only:[:new]
+
+  get '/parks/directions', to: 'parks#directions'
 
   get '/auth/twitter', as: :twitter_login
   get '/auth/twitter/callback', to: 'sessions#create'

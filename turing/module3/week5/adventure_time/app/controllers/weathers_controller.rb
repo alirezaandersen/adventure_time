@@ -30,12 +30,14 @@ class WeathersController <  ApplicationController
   end
 
   def forecast
-    #binding.pry
+    lat_long(params)
+    @five_day_forecast = AccuWeather.location_key(lat_long)
+  end
+
+  def lat_long(params)
     lat = params[:lat]
     long = params[:long]
     lat_long = [lat,long]
-    @five_day_forecast = AccuWeather.location_key(lat_long)
-    #binding.pry
   end
 
 end
