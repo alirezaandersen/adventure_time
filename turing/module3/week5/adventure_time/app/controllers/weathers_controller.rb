@@ -28,6 +28,7 @@ class WeathersController <  ApplicationController
 
   def forecast
     lat_long(params)
+    @park_name = params[:name]
     @five_day_forecast = AccuWeather.location_key(lat_long(params))
   end
 

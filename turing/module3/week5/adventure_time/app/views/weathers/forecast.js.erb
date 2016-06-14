@@ -1,3 +1,4 @@
-$('#forecast-modal').html("<%= escape_javascript(render 'forecast', locals:{five_day_forecast:@five_day_forecast}) %>");
+
+$('#forecast-modal').html("<%= escape_javascript(render 'forecast', locals:{five_day_forecast:@five_day_forecast, park_name:@park_name}) %>");
 //$('#forecast-modal').html("<%= @five_day_forecast %>");
 $('#forecast-modal').modal("show");
