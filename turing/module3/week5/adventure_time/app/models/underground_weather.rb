@@ -37,4 +37,13 @@ class UndergroundWeather
       [zip.to_s, condition_by_zip(zip)]
     end.to_h
   end
+
+  def self.temp()
+    if geo_by_locations < 70
+      image_tag = cold.png
+    else
+      image_tag = hot.png
+    end
+  end 
+
 end

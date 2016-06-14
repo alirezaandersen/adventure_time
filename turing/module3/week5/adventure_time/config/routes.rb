@@ -12,9 +12,10 @@ Rails.application.routes.draw do
   get '/parks/directions', to: 'parks#directions', defaults:{format: :js}
   get 'parks/search', to: 'parks#search'
   get 'parks/national_search', to: 'parks#national_search'
+  get 'parks/state_search', to: 'parks#state_search'
 
   get '/auth/twitter', as: :twitter_login
   get '/auth/twitter/callback', to: 'sessions#create'
-  get '/logout', to: 'sessions#destroy'
+  delete '/logout', to: 'sessions#destroy'
 
 end

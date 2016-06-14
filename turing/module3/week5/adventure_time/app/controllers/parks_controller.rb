@@ -19,6 +19,11 @@ class ParksController  < ApplicationController
 
   def national_search
     @national_parks = NationalPark.all
+    # binding.pry
+  end
+
+  def state_search
+
   end
 
   def directions
