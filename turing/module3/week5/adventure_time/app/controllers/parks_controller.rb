@@ -19,17 +19,15 @@ class ParksController  < ApplicationController
 
   def national_search
     @national_parks = NationalPark.all
-    # binding.pry
   end
 
   def state_search
-
   end
 
   def directions
     @lat_long = lat_long(params)
-    #location = GoogleMapService.new
-    #@park_location = location.get_park_address(lat_long(params))
+    # location = GoogleMapService.new
+    # @park_location = location.get_park_address(lat_long(params))
   end
 
   def lat_long(params)

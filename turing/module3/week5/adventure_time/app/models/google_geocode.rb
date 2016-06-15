@@ -15,7 +15,7 @@ class GoogleGeocode
   end
 
   def self.geo_parser(json_results)
-    json_results[:results].first[:address_components].map{|e| e if e[:types].include?"postal_code"}.compact.first[:long_name]
+    a = json_results[:results].first[:address_components].map{|e| e if e[:types].include?"postal_code"}.compact.first[:long_name]
   end
 
   def self.lng_lat(json_results)

@@ -1,20 +1,20 @@
 class WeathersController <  ApplicationController
   protect_from_forgery :except => :forecast
 
-  def index
-    @weather = UndergroundWeatherService.new
-    @conditions = @weather.conditions_by_zipcodes('80204', 90242)
-  end
+  # def index
+  #   @weather = UndergroundWeatherService.new
+  #   @conditions = @weather.conditions_by_zipcodes('80204', 90242)
+  # end
+  #
+  # def new
+  #   @zip = params[:zip]
+  #   @weather =UndergroundWeatherService.new
+  #   @conditions = @weather.condition_by_zip(@zip)
+  # end
 
-  def new
-    @zip = params[:zip]
-    @weather =UndergroundWeatherService.new
-    @conditions = @weather.condition_by_zip(@zip)
-  end
-
-  def create
-    @weather = UndergroundWeatherService.new(params[:zip])
-  end
+  # def create
+  #   @weather = UndergroundWeatherService.new(params[:zip])
+  # end
 
   def show
      @lat_long = params[:id]

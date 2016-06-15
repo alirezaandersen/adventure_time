@@ -4,7 +4,7 @@
     <li class="nav-item nav-link">
 
     <% if current_user %>
-       <!-- <img src="<%#= profile_picture %>"><%= current_user.name %> -->
+       <!-- <img src="<%#= profile_picture %>"><%#= current_user.name %> -->
       <%= link_to "Logout", logout_path, method: :delete %>
     <% else %>
       <a href="/auth/twitter"><%= image_tag "twitter.png", size: "50x50", class:"img-rounded center-block", title: "Twitter Login" %>

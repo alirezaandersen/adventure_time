@@ -4,4 +4,5 @@ class Location < ActiveRecord::Base
     parks = find_by(zip:zip)
     [parks[:lat], parks[:long]]
   end
+
 end
