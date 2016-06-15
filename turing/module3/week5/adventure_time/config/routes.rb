@@ -2,8 +2,6 @@ Rails.application.routes.draw do
 
   root 'welcome#index'
 
-  resources :weathers, only: [:new, :create, :show]
-
   get '/json/weather', to: 'weathers#json', defaults:{format: :json}
   get '/forecast/weather/', to: 'weathers#forecast', defaults:{format: :js}
 

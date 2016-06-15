@@ -1,9 +1,5 @@
 class UndergroundWeatherService
 
-  def google_geocode
-    GoogleGeocode.new
-  end
-
   def initialize
     @connection = Faraday.new(url: "http://api.wunderground.com/api/#{ENV["UNDERGROUND_APP_KEY"]}/")
     @connection.headers["Authorization"] = ENV["UNDERGROUND_APP_KEY"]
