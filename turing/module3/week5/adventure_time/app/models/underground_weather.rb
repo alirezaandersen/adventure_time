@@ -6,7 +6,7 @@ class UndergroundWeather
 
   def self.geo_by_location(geo_zip = nil)
     geo_zip ||= conditions_by_geolookup[:location][:zip]
-  condition_by_zip(geo_zip)
+    condition_by_zip(geo_zip)
   end
 
   def self.condition_by_zip(zip)
@@ -20,15 +20,6 @@ class UndergroundWeather
 
   def self.city_temp(json_result)
     {city: json_result[:current_observation][:display_location][:city],
-      temp: json_result[:current_observation][:temperature_string]}
+    temp: json_result[:current_observation][:temperature_string]}
   end
-
-  def self.temp()
-    if geo_by_locations < 70
-      image_tag = cold.png
-    else
-      image_tag = hot.png
-    end
-  end
-
 end

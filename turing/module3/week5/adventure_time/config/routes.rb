@@ -12,6 +12,8 @@ Rails.application.routes.draw do
   get 'parks/national_search', to: 'parks#national_search'
   get 'parks/state_search', to: 'parks#state_search'
 
+  resources :users, only:[:index]
+
   get '/auth/twitter', as: :twitter_login
   get '/auth/twitter/callback', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'

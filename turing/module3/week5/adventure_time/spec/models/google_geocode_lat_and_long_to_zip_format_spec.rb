@@ -6,7 +6,6 @@ RSpec.describe GoogleGeocode do
 
       geo = [39.866593, -104.7754307]
 
-      # geocode.lat_long_to_zip(geo)
       expect(GoogleGeocode.lat_long_to_zip(geo)).to eq "80022"
 
     end

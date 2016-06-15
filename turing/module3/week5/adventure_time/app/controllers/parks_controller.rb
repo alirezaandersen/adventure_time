@@ -1,7 +1,6 @@
 class ParksController  < ApplicationController
 
   def index
-
   end
 
   def new
@@ -24,13 +23,12 @@ class ParksController  < ApplicationController
   def state_search
   end
 
-  def directions
+  def directions(params = nil)
     @lat_long = lat_long(params)
-    # location = GoogleMapService.new
-    # @park_location = location.get_park_address(lat_long(params))
   end
 
   def lat_long(params)
+    binding.pry
     lat = params[:lat]
     long = params[:long]
     lat_long = [lat,long]
