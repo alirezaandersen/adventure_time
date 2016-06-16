@@ -19,7 +19,6 @@ feature "Registered user can log in through twitter" do
   scenario "they see that they are logged in" do
     visit root_path
     first("#twitter").click
-    # click_link("login")
     expect(current_path).to eq(root_path)
 
     user = User.first

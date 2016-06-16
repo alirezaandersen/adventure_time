@@ -14,3 +14,9 @@
 
 # Ignore application configuration
 /config/application.yml
+
+# Ignore database DS Store
+/db/.DS_Store
+
+# Ignore VCR Cassette
+/spec/cassettes
