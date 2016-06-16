@@ -5,6 +5,7 @@
       <% if current_user %>
       <!-- <img src="<%#= profile_picture %>"><%#= current_user.name %> -->
         <%= link_to "Logout", logout_path, method: :delete %>
+        <!-- <a id="twitter_logout", href="/logout"><%= image_tag "twitter_logout.png",size: "70x50", class:"img-rounded center-block", title: "Twitter Logout",method: :delete %> -->
       <% else %>
         <a id="twitter", href="/auth/twitter"><%= image_tag "twitter.png", size: "50x50", class:"img-rounded center-block", title: "Twitter Login" %>
       <% end %>

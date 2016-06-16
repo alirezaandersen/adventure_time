@@ -1,5 +1,5 @@
 class ParksController  < ApplicationController
-
+ protect_from_forgery except: :directions
   def index
   end
 
@@ -23,12 +23,11 @@ class ParksController  < ApplicationController
   def state_search
   end
 
-  def directions(params = nil)
+  def directions
     @lat_long = lat_long(params)
   end
 
   def lat_long(params)
-    binding.pry
     lat = params[:lat]
     long = params[:long]
     lat_long = [lat,long]

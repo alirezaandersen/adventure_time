@@ -3,8 +3,12 @@
 <% @national_parks.each do |national_park| %>
   <tr>
     <td><h4><%= national_park.name %>: <%= national_park.state %></h4></td>
-    <td><a href ="https://www.google.com/maps/place/<%=national_park.lat%>, <%= national_park.long %>" target="_blank">Directions</a></td>
+    <!-- <td><a href ="https://www.google.com/maps/place/<%#=national_park.lat%>, <%#= national_park.long %>" target="_blank">Directions</a></td> -->
+
+    <td><%= link_to "Directions", "/parks/directions/?lat=%s&long=%s" % [national_park.lat, national_park.long] , remote: true, class: "mdirections" %></td>
+
     <td><%= link_to "Forecast", "/forecast/weather/?lat=%s&long=%s" % [national_park.lat,national_park.lat] , remote: true, class:"card-link" %></td>
+
     <td><a href ="<%= national_park.url %>" target="_blank">Park Info</a></td>
   </tr>
   <% end %>

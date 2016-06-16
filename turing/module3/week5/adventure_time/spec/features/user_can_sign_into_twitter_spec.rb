@@ -27,5 +27,7 @@ feature "Registered user can log in through twitter" do
       expect(page).to have_content "Find your Adventure today"
       expect(page).to have_content "current"
       expect(page).to have_content "Logout"
+
+      click_link "Logout"
   end
 end
