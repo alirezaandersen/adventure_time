@@ -20,8 +20,8 @@ class AccuWeather
   end
 
   def self.forecast_parser(json_forecast_results)
-    non_format_forecast = json_forecast_results[:DailyForecasts].map.with_index { |item, index| [item[:Date].split[0], item[:Temperature]]}
+    non_format_forecast = json_forecast_results[:DailyForecasts].map.with_index { |item, index| [Date.parse(item[:Date].split[0]), item[:Temperature]]}
     five_day_forecast(non_format_forecast)
   end
-  
+
 end
