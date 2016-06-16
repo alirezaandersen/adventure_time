@@ -5,7 +5,7 @@
 
     <td><%= link_to "Directions", "/parks/directions/?lat=%s&long=%s&type=%s" % [national_park.lat, national_park.long, @type] , remote: true, class: "mdirections" %></td>
 
-    <td><%= link_to "Forecast", "/forecast/weather/?lat=%s&long=%s" % [national_park.lat,national_park.lat] , remote: true, class:"card-link" %></td>
+    <td><%= link_to "Forecast", "/forecast/weather/?lat=%s&long=%s&name=%s" % [national_park.lat,national_park.lat, national_park.name] , remote: true, class:"card-link" %></td>
 
     <td><a href ="<%= national_park.url %>" target="_blank">Park Info</a></td>
   </tr>

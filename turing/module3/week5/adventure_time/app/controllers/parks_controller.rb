@@ -26,15 +26,7 @@ class ParksController  < ApplicationController
   end
 
   def directions
-    @lat_long = lat_long(params)
-    @url = "https://www.google.com/maps/embed/v1/place?key=%s&q=%s,%s" % [ENV['GOOGLE_PlACES_API_KEY'],@lat_long[0],@lat_long[1]]
-    @url = @url + "&zoom=6" if !params[:type].to_s.empty? && params[:type] == 'national'
-  end
-
-  def lat_long(params)
-    lat = params[:lat]
-    long = params[:long]
-    lat_long = [lat,long]
+    @url = ParkSelector.direction_redirect_style(params)
   end
 
   def params_redirect(params)
