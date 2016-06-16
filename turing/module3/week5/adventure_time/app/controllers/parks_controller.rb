@@ -19,6 +19,7 @@ class ParksController  < ApplicationController
 
   def national_search
     @national_parks = NationalPark.all
+    @type = 'national'
   end
 
   def state_search
@@ -26,6 +27,8 @@ class ParksController  < ApplicationController
 
   def directions
     @lat_long = lat_long(params)
+    @url = "https://www.google.com/maps/embed/v1/place?key=%s&q=%s,%s" % [ENV['GOOGLE_PlACES_API_KEY'],@lat_long[0],@lat_long[1]]
+    @url = @url + "&zoom=6" if !params[:type].to_s.empty? && params[:type] == 'national'
   end
 
   def lat_long(params)

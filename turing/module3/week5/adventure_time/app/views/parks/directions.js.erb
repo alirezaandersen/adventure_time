@@ -1,2 +1,2 @@
-$('#directions-modal').html("<%= escape_javascript(render 'directions', locals:{lat_long:@lat_long}) %>");
+$('#directions-modal').html("<%= escape_javascript(render 'directions', locals:{url:@url}) %>");
 $('#directions-modal').modal("show");
