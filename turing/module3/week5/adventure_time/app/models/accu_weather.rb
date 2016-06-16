@@ -23,4 +23,5 @@ class AccuWeather
     non_format_forecast = json_forecast_results[:DailyForecasts].map.with_index { |item, index| [item[:Date].split[0], item[:Temperature]]}
     five_day_forecast(non_format_forecast)
   end
+  
 end

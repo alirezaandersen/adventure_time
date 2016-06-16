@@ -9,4 +9,5 @@ class UndergroundWeatherService
     response = @connection.get(path).body
     JSON.parse(response, symbolize_names: true )
   end
+
 end

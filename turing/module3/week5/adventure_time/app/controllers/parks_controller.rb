@@ -1,5 +1,6 @@
 class ParksController  < ApplicationController
  protect_from_forgery except: :directions
+
   def index
   end
 

@@ -8,9 +8,11 @@
   <% @parks.each do |park_name,park_data| %>
   <tr>
     <td><h4><%= park_name %></h4></td>
+
     <td><p class="card-text" data-zip="<%= park_data[:zipcode] %>">Current Weather: <%#=@parks_weather[park.first][:temp]  %></p></td>
+
     <td><%= link_to "Directions", "/parks/directions/?lat=%s&long=%s" % [park_data[:lat],park_data[:long]] , remote: true, class: "mdirections" %></td>
-    <!-- <td><a href="https://www.google.com/maps/place/<%#=park_data[:lat]%>,<%#=park_data[:long]%>" target="_blank">Directions</a></td> -->
+
     <td><%= link_to "Forecast", "/forecast/weather/?lat=%s&long=%s&name=%s" % [park_data[:lat],park_data[:long],park_name] , remote: true, class:"card-link" %></td>
   </tr>
   <% end %>

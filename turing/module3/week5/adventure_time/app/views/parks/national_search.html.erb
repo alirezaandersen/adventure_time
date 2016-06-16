@@ -1,9 +1,7 @@
 <table class="table-md" >
-
-<% @national_parks.each do |national_park| %>
+  <% @national_parks.each do |national_park| %>
   <tr>
     <td><h4><%= national_park.name %>: <%= national_park.state %></h4></td>
-    <!-- <td><a href ="https://www.google.com/maps/place/<%#=national_park.lat%>, <%#= national_park.long %>" target="_blank">Directions</a></td> -->
 
     <td><%= link_to "Directions", "/parks/directions/?lat=%s&long=%s" % [national_park.lat, national_park.long] , remote: true, class: "mdirections" %></td>
 
@@ -20,5 +18,5 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/js/bootstrap.min.js" integrity="sha384-vZ2WRJMwsjRMW/8U7i6PWi6AlO1L79snBrmgiDpgIWJ82z8eA5lenwvxbMV1PAh7" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/danielgindi-jquery-backstretch/2.1.13/jquery.backstretch.min.js"></script>
 <script>
-  $.backstretch("/moose-in-grand-teton-national-park-52301-1920x1080.jpg");
+$.backstretch("/moose-in-grand-teton-national-park-52301-1920x1080.jpg");
 </script>

@@ -19,7 +19,8 @@ class UndergroundWeather
   end
 
   def self.city_temp(json_result)
-    {city: json_result[:current_observation][:display_location][:city],
-    temp: json_result[:current_observation][:temperature_string]}
+  {city: json_result[:current_observation][:display_location][:city],
+   temp: json_result[:current_observation][:temperature_string]}
   end
+
 end
