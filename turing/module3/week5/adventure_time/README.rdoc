@@ -1,28 +1,17 @@
-== README
+# Outdoor Adventures
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Find local parks around your area based on zip code, and get the information needed to manage your trip, avoid bad weather, and busy traffic times.
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+![ScreenShot](app/assets/images/screen-shot.png)
+[Lets Go on an Outdoor Adventure](http://outdooradventuretime.herokuapp.com/)
+#### You will need to provide your own Api keys for AccuWeather, UndergroundWeather and Google
 
 
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+#### To get things started:
+
+* Clone file
+* bundle install
+* rake db:create, db:migrate, db:seed
+* Once all dependencies are installed run rails s
+#### To run test:
+ run rspec
